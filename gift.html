@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #f9d7e6;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        background: white;
+        width: 350px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .emoji {
+        font-size: 70px;
+    }
+
+    h2 {
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        border-radius: 30px;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    #yesBtn {
+        background: #ff3b8d;
+        color: white;
+    }
+
+    #noBtn {
+        background: #e5e5e5;
+        color: #333;
+        position: relative;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="emoji">🐱‍👓💖</div>
+
+    <h2>Challenge, will you be my Valentine?</h2>
+
+    <button class="btn" id="yesBtn">Yes</button>
+    <button class="btn" id="noBtn">No</button>
+
+    <p id="note" style="margin-top:15px; font-size:14px; color:#555;"></p>
+</div>
+
+<script>
+    // Move NO button each time user tries to click
+    const noBtn = document.getElementById("noBtn");
+    const note = document.getElementById("note");
+    let moves = 0;
+
+    noBtn.addEventListener("mouseover", () => {
+        moves++;
+        note.innerHTML = `"No" seems a bit shy 😈`;
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = Math.random() * 200 + "px";
+        noBtn.style.top = Math.random() * 200 + "px";
+    });
+
+    // YES button click action
+    document.getElementById("yesBtn").onclick = () => {
+        document.body.innerHTML = `
+            <div style="text-align:center; font-size:30px; padding:50px;">
+                💖 Yay! Can't wait! 💖
+            </div>
+        `;
+    };
+</script>
+
+</body>
+</html>
